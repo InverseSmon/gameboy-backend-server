@@ -3,7 +3,7 @@ import { Sequelize } from "sequelize";
 console.log("hello");
 
 export const sequelize = new Sequelize(
-    "postgres://admin:WIZlrB54nQV6VmoQXRGH7AjC6In4P1oM@dpg-cjftkhocfp5c73el31n0-a.frankfurt-postgres.render.com/dev_xpxt?ssl=true"
+    process.env.DATABASE_URL || "postgres://postgres:postgres@postgres:5432/dev"
 );
 
 export async function testConnection() {
