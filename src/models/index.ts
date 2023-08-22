@@ -154,8 +154,8 @@ export const CustomerRequest: ModelStatic<ICustomerRequest> = sequelize.define(
     }
 );
 
-Supplier.hasMany(Mod);
-Mod.belongsTo(Supplier);
+// Supplier.hasMany(Mod);
+// Mod.belongsTo(Supplier);
 
 export async function syncDb() {
     await Mod.sync({ alter: true });
@@ -167,6 +167,7 @@ export async function syncDb() {
 }
 
 // `sequelize.define` also returns the model
-//console.log(User === sequelize.models.User); // true
+//console.log(User === sequelize.models.User);
+// true
 
 console.log(Mod === sequelize.models.Mod);
