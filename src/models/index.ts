@@ -154,8 +154,8 @@ export const CustomerRequest: ModelStatic<ICustomerRequest> = sequelize.define(
     }
 );
 
-// Supplier.hasMany(Mod);
-// Mod.belongsTo(Supplier);
+Supplier.hasMany(Mod);
+Mod.belongsTo(Supplier);
 
 export async function syncDb() {
     await Mod.sync({ alter: true });
