@@ -158,9 +158,9 @@ Supplier.hasMany(Mod);
 Mod.belongsTo(Supplier);
 
 export async function syncDb() {
-    await Mod.sync({ force: true });
-    await Supplier.sync({ force: true });
-    await CustomerRequest.sync({ force: true });
+    await Mod.sync({ alter: true });
+    await Supplier.sync({ alter: true });
+    await CustomerRequest.sync({ alter: true });
     console.log(
         "The tables for the Mod, Supplier, and Request models were just (re)created!"
     );
