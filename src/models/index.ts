@@ -80,18 +80,18 @@ export const Supplier: ModelStatic<ISupplier> = sequelize.define(
 interface ICustomerRequest extends Model {
     id: number;
     email: String;
-    shellColor: Array<number>;
-    lensColor: Array<number>;
-    dpadColor: Array<number>;
-    abColor: Array<number>;
-    staselColor: Array<number>;
-    screenMod: String;
-    audioSpeakerMod: String;
-    audioMod: String;
-    powerMod: String;
-    batteryMod: String;
-    ledMod: String;
-    otherMod: String;
+    shell: String;
+    lens: String;
+    dpad: String;
+    ab: String;
+    stasel: String;
+    Screen: String;
+    AudioSpeaker: String;
+    AudioMod: String;
+    Power: String;
+    Battery: String;
+    LED: String;
+    Other: String;
 }
 
 export const CustomerRequest: ModelStatic<ICustomerRequest> = sequelize.define(
@@ -102,50 +102,50 @@ export const CustomerRequest: ModelStatic<ICustomerRequest> = sequelize.define(
             type: DataTypes.STRING,
             //allowNull: false,
         },
-        shellColor: {
-            type: DataTypes.ARRAY(DataTypes.DECIMAL(17, 16)),
+        shell: {
+            type: DataTypes.STRING,
 
             // allowNull defaults to true
         },
-        lensColor: {
-            type: DataTypes.ARRAY(DataTypes.DECIMAL(17, 16)),
+        lens: {
+            type: DataTypes.STRING,
 
             // allowNull defaults to true
         },
-        dpadColor: {
-            type: DataTypes.ARRAY(DataTypes.DECIMAL(17, 16)),
+        dpad: {
+            type: DataTypes.STRING,
 
             // allowNull defaults to true
         },
-        abColor: {
-            type: DataTypes.ARRAY(DataTypes.DECIMAL(17, 16)),
+        ab: {
+            type: DataTypes.STRING,
 
             // allowNull defaults to true
         },
-        staselColor: {
-            type: DataTypes.ARRAY(DataTypes.DECIMAL(17, 16)),
+        stasel: {
+            type: DataTypes.STRING,
 
             // allowNull defaults to true
         },
-        screenMod: {
+        Screen: {
             type: DataTypes.STRING,
         },
-        audioSpeakerMod: {
+        AudioSpeaker: {
             type: DataTypes.STRING,
         },
-        audioMod: {
+        AudioMod: {
             type: DataTypes.STRING,
         },
-        powerMod: {
+        Power: {
             type: DataTypes.STRING,
         },
-        batteryMod: {
+        Battery: {
             type: DataTypes.STRING,
         },
-        ledMod: {
+        LED: {
             type: DataTypes.STRING,
         },
-        otherMod: {
+        Other: {
             type: DataTypes.STRING,
         },
     },
@@ -160,7 +160,7 @@ Mod.belongsTo(Supplier);
 export async function syncDb() {
     await Mod.sync({ alter: true });
     await Supplier.sync({ alter: true });
-    await CustomerRequest.sync({ force: true });
+    await CustomerRequest.sync({ alter: true });
     console.log(
         "The tables for the Mod, Supplier, and Request models were just (re)created!"
     );
