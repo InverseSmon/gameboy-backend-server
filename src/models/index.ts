@@ -1,14 +1,6 @@
 import { DataTypes, ModelStatic, Model } from "sequelize";
 import { sequelize } from "../database";
 
-/*interface IUser extends Model {
-    id: number;
-    firstName: String;
-    lastName: String;
-    createdAt: Date;
-    updatedAt: Date;
-}*/
-
 interface IMod extends Model {
     id: number;
     name: String;
@@ -100,32 +92,21 @@ export const CustomerRequest: ModelStatic<ICustomerRequest> = sequelize.define(
         // Model attributes are defined here
         email: {
             type: DataTypes.STRING,
-            //allowNull: false,
         },
         shell: {
             type: DataTypes.STRING,
-
-            // allowNull defaults to true
         },
         lens: {
             type: DataTypes.STRING,
-
-            // allowNull defaults to true
         },
         dpad: {
             type: DataTypes.STRING,
-
-            // allowNull defaults to true
         },
         ab: {
             type: DataTypes.STRING,
-
-            // allowNull defaults to true
         },
         stasel: {
             type: DataTypes.STRING,
-
-            // allowNull defaults to true
         },
         Screen: {
             type: DataTypes.STRING,
@@ -165,9 +146,5 @@ export async function syncDb() {
         "The tables for the Mod, Supplier, and Request models were just (re)created!"
     );
 }
-
-// `sequelize.define` also returns the model
-//console.log(User === sequelize.models.User);
-// true
 
 console.log(Mod === sequelize.models.Mod);

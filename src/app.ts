@@ -21,7 +21,7 @@ app.use(express.json());
 
 app.get<{}, MessageResponse>("/", (req, res) => {
     res.json({
-        message: "sweaty balls",
+        message: "test",
     });
 });
 
@@ -36,7 +36,7 @@ app.get<{}, any>("/products/:productType", async (req: any, res) => {
 });
 
 app.get<{}, any>("/products", async (req, res) => {
-    const products = await Mod.findAll();
+    const products = await Mod.findAll({ include: Supplier });
     return res.json(products);
 });
 
@@ -58,12 +58,6 @@ app.post<{}, any>("/requests", async (req, res) => {
     const request = await CustomerRequest.create({ ...req.body });
     return res.json(request);
 });
-
-/*
-app.post<{}, any>("/users", async (req, res) => {
-    const user = await User.create({ ...req.body });
-    return res.json(user);
-});*/
 
 app.use("/api/v1", api);
 
